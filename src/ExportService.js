@@ -5,11 +5,11 @@ class ExportService {
         this._pool = new Pool();
     }
 
-    async exportPlaylist(userId, playlistId) {
+    async exportPlaylist(playlistId) {
         const queryPlaylist = {
             text: `SELECT playlist.* FROM playlist
-            WHERE playlist."ownerId" = $1 AND playlist.id = $2`,
-            values: [userId, playlistId],
+            WHERE playlist.id = $1`,
+            values: [playlistId],
         };
         const resultPlaylist = await this._pool.query(queryPlaylist);
 
