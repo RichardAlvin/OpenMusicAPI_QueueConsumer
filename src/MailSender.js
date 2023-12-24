@@ -7,9 +7,9 @@ class MailSender {
             port: process.env.SMTP_PORT,
             auth: {
                 user: process.env.SMTP_USER,
-                pass: process.env.SMTP_PASSWORD
-            }
-        })
+                pass: process.env.SMTP_PASSWORD,
+            },
+        });
     }
 
     sendEmail(targetEmail, content) {
@@ -17,12 +17,12 @@ class MailSender {
             from: 'OpenMusicAPI',
             to: targetEmail,
             subject: 'Ekspor Playlist',
-            text: 'Terlampir hasil dari ekspor playlistj',
+            text: 'Terlampir hasil dari ekspor playlist',
             attachments: [
-              {
-                filename: 'playlist.json',
-                content,
-              },
+                {
+                    filename: 'playlist.json',
+                    content,
+                },
             ],
         };
 
